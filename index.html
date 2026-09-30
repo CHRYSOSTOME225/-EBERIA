@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <title>EBERIA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Musique de l'introduction -->
+    <audio
+        id="music"
+        src="audio/debut.mp3"
+        loop>
+    </audio>
+
+
+    <!-- Curseur bleu -->
+    <div id="gameCursor"></div>
+
+
+    <!-- Cinématique -->
+    <main id="cinematic">
+
+        <!-- Écran noir de départ -->
+        <section
+            id="blackScreen"
+            class="screen active">
+
+            <div
+                id="openingText"
+                class="story-text">
+
+                Il était une fois,<br>
+                quelque part dans ce monde...
+
+            </div>
+
+        </section>
+
+
+        <!-- Scène -->
+        <section
+            id="scene"
+            class="screen">
+
+            <img
+                id="sceneImage"
+                src=""
+                alt="">
+
+            <div id="darkOverlay"></div>
+
+            <div id="storyContainer">
+
+                <p id="storyText"></p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
