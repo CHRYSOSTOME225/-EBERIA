@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EBERIA — Quête</title>
+
+    <link rel="stylesheet" href="css/quest1.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         ÉCRAN D'ENTRÉE
+    ========================== -->
+    <div id="enter-screen">
+
+        <div class="enter-content">
+            <h1>EBERIA</h1>
+            <p>Une vérité oubliée sommeille encore...</p>
+
+            <button id="enter-button">
+                ENTRER
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ÉCRAN DU JEU
+    ========================== -->
+    <div id="game-screen">
+
+        <div id="map-container">
+
+            <!-- CARTE -->
+            <img
+                id="game-map"
+                src="img/map1.png"
+                alt="Carte de Néiris"
+            >
+
+
+            <!-- =========================
+                 INTERFACE DE QUÊTE
+            ========================== -->
+
+            <div id="top-ui">
+
+                <div id="quest-title">
+                    QUÊTE
+                </div>
+
+                <div id="objective-text">
+                    Explorer les ruines occidentales.
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 BOUTON DU MENU
+            ========================== -->
+
+            <button id="menu-button">
+                ☰
+                <span>SAC</span>
+            </button>
+
+
+            <!-- =========================
+                 ADAM
+            ========================== -->
+
+            <div id="adam">
+
+                <div class="adam-marker"></div>
+
+                <span>Adam</span>
+
+            </div>
+            <div id="destination-cursor"></div>
+
+
+            <!-- =========================
+                 PNJ
+            ========================== -->
+
+            <div
+                class="npc"
+                id="npc-ancien"
+                data-npc="ancien"
+            >
+
+                <div class="npc-name">
+                    Elyan — l'ancien
+                </div>
+
+                <div class="talk-icon">
+                    💬
+                </div>
+
+                <img
+                    src="img/ancien.png"
+                    alt="Elyan"
+                >
+
+            </div>
+
+
+            <div
+                class="npc"
+                id="npc-marchande"
+                data-npc="marchande"
+            >
+
+                <div class="npc-name">
+                    Naïa — la marchande
+                </div>
+
+                <div class="talk-icon">
+                    💬
+                </div>
+
+                <img
+                    src="img/marchande.png"
+                    alt="Naïa"
+                >
+
+            </div>
+
+
+            <div
+                class="npc"
+                id="npc-voyageur"
+                data-npc="voyageur"
+            >
+
+                <div class="npc-name">
+                    Kael — le voyageur
+                </div>
+
+                <div class="talk-icon">
+                    💬
+                </div>
+
+                <img
+                    src="img/voyageur.png"
+                    alt="Kael"
+                >
+
+            </div>
+
+
+            <!-- =========================
+                 CERCLES DES LIEUX
+            ========================== -->
+
+            <div
+                class="location-zone"
+                id="western-zone"
+                data-location="western"
+            ></div>
+
+            <div
+                class="location-zone"
+                id="sanctuary-zone"
+                data-location="sanctuary"
+            ></div>
+
+            <div
+                class="location-zone"
+                id="well-zone"
+                data-location="well"
+            ></div>
+
+            <div
+                class="location-zone"
+                id="southern-zone"
+                data-location="southern"
+            ></div>
+
+            <div
+                class="location-zone"
+                id="camp-zone"
+                data-location="camp"
+            ></div>
+
+            <div
+                class="location-zone"
+                id="bridge-zone"
+                data-location="bridge"
+            ></div>
+
+
+            <!-- =========================
+                 NOMS DES LIEUX
+            ========================== -->
+
+            <button
+                class="location"
+                id="western-ruins"
+                data-location="western"
+            >
+                Ruines occidentales
+            </button>
+
+            <button
+                class="location"
+                id="sanctuary"
+                data-location="sanctuary"
+            >
+                Sanctuaire oublié
+            </button>
+
+            <button
+                class="location"
+                id="old-well"
+                data-location="well"
+            >
+                Ancien puits
+            </button>
+
+            <button
+                class="location"
+                id="southern-ruins"
+                data-location="southern"
+            >
+                Ruines du sud
+            </button>
+
+            <button
+                class="location"
+                id="abandoned-camp"
+                data-location="camp"
+            >
+                Camp abandonné
+            </button>
+
+            <button
+                class="location"
+                id="eastern-bridge"
+                data-location="bridge"
+            >
+                Pont oriental
+            </button>
+
+
+            <!-- =========================
+                 MENU DU JOUEUR
+            ========================== -->
+
+            <div id="player-menu">
+
+                <div id="menu-panel">
+
+                    <div id="menu-header">
+
+                        <div>
+                            <div id="menu-small-title">
+                                EBERIA
+                            </div>
+
+                            <h2>
+                                INVENTAIRE
+                            </h2>
+                        </div>
+
+                        <button id="close-menu">
+                            ✕
+                        </button>
+
+                    </div>
+
+
+                    <!-- ONGLETS -->
+
+                    <div id="menu-tabs">
+
+                        <button
+                            class="menu-tab active"
+                            data-tab="quests"
+                        >
+                            📜
+                            <span>Quêtes</span>
+                        </button>
+
+                        <button
+                            class="menu-tab"
+                            data-tab="items"
+                        >
+                            🎒
+                            <span>Objets</span>
+                        </button>
+
+                        <button
+                            class="menu-tab"
+                            data-tab="resources"
+                        >
+                            🧰
+                            <span>Ressources</span>
+                        </button>
+
+                        <button
+                            class="menu-tab"
+                            data-tab="map"
+                        >
+                            🗺️
+                            <span>Carte</span>
+                        </button>
+
+                    </div>
+
+
+                    <!-- CONTENU DU MENU -->
+
+                    <div id="menu-content">
+
+
+                        <!-- QUÊTES -->
+
+                        <section
+                            class="menu-page active"
+                            id="tab-quests"
+                        >
+
+                            <div class="page-title">
+                                QUÊTES
+                            </div>
+
+                            <div class="quest-card">
+
+                                <div class="quest-status">
+                                    QUÊTE PRINCIPALE
+                                </div>
+
+                                <h3>
+                                    Les documents oubliés
+                                </h3>
+
+                                <p id="menu-quest-description">
+                                    Adam doit découvrir les secrets
+                                    d'une ancienne secte et retrouver
+                                    des documents capables de révéler
+                                    des événements futurs.
+                                </p>
+
+                                <div class="quest-current">
+
+                                    <span>
+                                        OBJECTIF ACTUEL
+                                    </span>
+
+                                    <strong id="menu-objective">
+                                        Explorer les ruines occidentales.
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- OBJETS -->
+
+                        <section
+                            class="menu-page"
+                            id="tab-items"
+                        >
+
+                            <div class="page-title">
+                                OBJETS
+                            </div>
+
+                            <div
+                                id="items-list"
+                                class="empty-inventory"
+                            >
+
+                                <div class="empty-icon">
+                                    🎒
+                                </div>
+
+                                <p>
+                                    Aucun objet important.
+                                </p>
+
+                                <small>
+                                    Les objets trouvés pendant
+                                    l'aventure apparaîtront ici.
+                                </small>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- RESSOURCES -->
+
+                        <section
+                            class="menu-page"
+                            id="tab-resources"
+                        >
+
+                            <div class="page-title">
+                                RESSOURCES
+                            </div>
+
+                            <div
+                                id="resources-list"
+                                class="empty-inventory"
+                            >
+
+                                <div class="empty-icon">
+                                    🧰
+                                </div>
+
+                                <p>
+                                    Aucune ressource.
+                                </p>
+
+                                <small>
+                                    Les ressources récupérées
+                                    apparaîtront ici.
+                                </small>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- CARTE -->
+
+                        <section
+                            class="menu-page"
+                            id="tab-map"
+                        >
+
+                            <div class="page-title">
+                                CARTE
+                            </div>
+
+                            <div class="map-information">
+
+                                <div class="map-symbol">
+                                    🗺️
+                                </div>
+
+                                <h3>
+                                    Néiris
+                                </h3>
+
+                                <p>
+                                    Les lieux découverts par Adam
+                                    seront progressivement ajoutés
+                                    à cette section.
+                                </p>
+
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 BOÎTE D'INTERACTION
+            ========================== -->
+
+            <div id="interaction-box">
+
+                <h2 id="interaction-title">
+                    Interaction
+                </h2>
+
+                <p id="interaction-description">
+                    Une interaction est disponible.
+                </p>
+
+                <div class="interaction-buttons">
+
+                    <button id="examine-button">
+                        EXAMINER
+                    </button>
+
+                    <button id="close-interaction">
+                        FERMER
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 DIALOGUE PNJ
+            ========================== -->
+
+            <div id="npc-dialogue">
+
+                <div id="dialogue-portrait-container">
+
+                    <img
+                        id="dialogue-portrait"
+                        src=""
+                        alt="Personnage"
+                    >
+
+                </div>
+
+                <div id="dialogue-content">
+
+                    <div id="dialogue-name">
+                        Nom
+                    </div>
+
+                    <div id="dialogue-text">
+                        Dialogue...
+                    </div>
+
+                    <button id="close-dialogue">
+                        FERMER
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 MESSAGE
+            ========================== -->
+
+            <div id="message-box">
+                <span id="message-text"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="js/quest1.js"></script>
+
+</body>
+</html>
